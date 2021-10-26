@@ -21,6 +21,7 @@ services:
       - traefik-external
     volumes:
       - 'redmine_data:/bitnami/redmine'
+      - 'themes:/opt/bitnami/redmine/public/themes'
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.${TRAEFIK_ROUTER}.rule=Host(`${TRAEFIK_HOST}`)"
@@ -42,6 +43,8 @@ volumes:
   mariadb_data:
     driver: local
   redmine_data:
+    driver: local
+  themes:
     driver: local
 
 networks:
